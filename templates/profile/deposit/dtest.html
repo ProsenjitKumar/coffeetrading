@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.currency_name }}</title>
+</head>
+<body>
+
+{{ object.currency_name }}<br>
+{{ object.currency_address }}<br>
+<img src="{{ MEDIA_URL }}{{ object.logo.url }}" alt="..." width="130" class="rounded mb-2 img-thumbnail"><br>
+<img src="{{ MEDIA_URL }}{{ object.qr_code_image.url }}" alt="..." width="130" class="rounded mb-2 img-thumbnail"><br>
+
+<strong><h6 class="date">Today's Date: {{ now|date }} {{ now|time }}</h6></strong>
+<br>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <label>Amount</label>
+    {{ form.amount_deposited }}
+    <label>Currency</label>
+    {{ form.currency_selected }}
+    <label>Transaction Id</label>
+    {{ form.transaction_id }}
+    <button>submit</button>
+</form>
+
+</body>
+</html>
